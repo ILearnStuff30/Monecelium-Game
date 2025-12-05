@@ -4,6 +4,7 @@ using System.Collections;
 public class CircleScript : MonoBehaviour
 {
     public GameObject Circle;
+    public CircleCollider2D collider;
     public int nOfIterations;
     public float growthScalar;
     public int sortingOrder;
@@ -16,6 +17,8 @@ public class CircleScript : MonoBehaviour
     {
         InvokeRepeating("SpawnCircle", 0f, growthSpeed);
         growthScalar = 0f;
+
+        collider = GetComponent<CircleCollider2D>();
 
     }
 
@@ -46,5 +49,10 @@ public class CircleScript : MonoBehaviour
         {
             CancelInvoke("SpawnCircle");
         }
+    }
+
+    public void OnMouseDown()
+    {
+        Debug.Log("We get money!");
     }
 }
